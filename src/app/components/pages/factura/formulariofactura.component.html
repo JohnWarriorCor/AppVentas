@@ -1,0 +1,114 @@
+<div class="jumbotron">
+  <h1 class="display-4">factura</h1>
+  <form  novalidate class="text-center">
+    <div class="row">
+        <div class="col">
+            <h6 class="text-left gray">Nombre:</h6>
+            <input  type="text" name="nombre" class="form-control shadow p-3 inputPaciente" placeholder="Nombre del paciente" required>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h6 class="text-left gray">Documento:</h6>
+                    <select class="custom-select shadow inputPaciente gray" id="documento" name="documento">
+                        <option selected>Tipo</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <h6 class="text-left gray">Número:</h6>
+                    <input  type="text" name="numero" class="form-control shadow p-3 inputPaciente" placeholder="Numero de identificación" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6 class="gray text-left">Apellidos:</h6>
+            <input  type="text" name="apellido" class="form-control shadow p-3 inputPaciente" placeholder="Apellidos del paciente" required>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h6 class="gray text-left">Edad:</h6>
+                    <input  type="text" name="edad" class="form-control shadow p-3 inputPaciente" placeholder="Edad del paciente" required>
+                </div>
+                <div class="col">
+                    <h6 class="gray text-left">Altura:</h6>
+                    <input type="text" name="altura" class="form-control shadow p-3 inputPaciente" placeholder="Altura en centimetros (cm)" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6 class="gray text-left">Dirección:</h6>
+            <input  type="text" name="direccion" class="form-control shadow p-3 inputPaciente" placeholder="Dirección de residencia del paciente" required>
+        </div>
+        <div class="col">
+            <h6 class="gray text-left">Celular:</h6>
+            <input  type="text" name="celular" class="form-control shadow p-3 inputPaciente" placeholder="Numero celular del paciente (+57) 310 000 0000" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+                <h6 class="gray text-left">Correo:</h6>
+                <input type="text" name="correo" class="form-control shadow p-3 inputPaciente" placeholder="paciente@mail.com" required>
+        </div>
+        <div class="col">
+                <h6 class="gray text-left">Última visita del paciente:</h6>
+                <input  type="date" name="ultvisita" class="form-control shadow p-3 inputPaciente" placeholder="Nombre del invocador" required>
+        </div>
+        <div class="col">
+            <h6 class="gray text-left">Médico</h6>
+            <select class="custom-select shadow inputPaciente" id="medico" name="documento" >
+                <option selected>Desplegar</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6 class="gray text-left">Observaciones</h6>
+            <textarea name="observa" class="form-control shadow p-3 inputPaciente" placeholder="..." rows="3"></textarea>
+        </div>
+    </div>
+    <!--***************************************
+    <div class="form-group">
+        <h6>Nombre</h6>
+        <input [(ngModel)]="invocador.nombre" type="text" name="nombre" class="form-control shadow p-3 inputPaciente" placeholder="Nombre del invocador" required>
+    </div>
+    <div class="form-group">
+        <label class="color-personal">Nombre de usuario</label>
+        <input [(ngModel)]="invocador.username" type="text" name="username" class="form-control" placeholder="Nombre de usuario" required>
+    </div>
+    <div class="form-group">
+        <label class="color-personal">Servidor</label>
+        <select [(ngModel)]="invocador.servidor" name="servidor" class="form-control">
+          <option value="" disabled selected>Elige tú region</option>
+          <option *ngFor="let region of regiones" [value]="region.clave">{{region.descripcion}}</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="column m-3 text-center">
+            <label class="color-personal">Liga</label>
+            <select [ngStyle]="{'width': '200px'}||{'overflow':'auto'}" [(ngModel)]="invocador.liga" name="liga" class="form-control">
+              <option *ngFor="let liga of ligas" [value]="liga.lig">{{liga.lig}}</option>
+            </select>
+        </div>
+        <div class="column m-3 text-center">
+            <label class="color-personal">División</label>
+            <select [(ngModel)]="invocador.division" name="division" class="form-control">
+              <option *ngFor="let division of divisiones" [value]="division.divi">{{division.divi}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    **********************************-->
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success" style="width: 100%"><span class="far fa-save fa-3x"></span></button>
+    </div>
+    <hr>
+</form>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
