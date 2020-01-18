@@ -1,44 +1,45 @@
 <div class="jumbotron">
   <h1 class="display-4">Cliente</h1>
-  <form novalidate class="text-center">
+  <form (ngSubmit)="guardar()" #forma="ngForm" novalidate class="text-center">
     <div class="row">
       <div class="col">
         <h6 class="text-left gray">Nombre:</h6>
-        <input type="text" name="nombre" class="form-control shadow p-3 inputPaciente" placeholder="000000"
+        <input [(ngModel)]="clientes.nombre" autocomplete="off" type="text" name="nombre" class="form-control shadow p-3 inputPaciente" placeholder="Nombre cliente"
           required>
       </div>
       <div class="col">
         <h6 class="text-left gray">CC:</h6>
-        <input type="text" name="numero" class="form-control shadow p-3 inputPaciente"
-          placeholder="Numero de identificación" required>
+        <input [(ngModel)]="clientes.cc" type="text" name="numero" class="form-control shadow p-3 inputPaciente"
+          placeholder="000000" required>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <h6 class="gray text-left">Apellidos:</h6>
-        <input type="text" name="apellido" class="form-control shadow p-3 inputPaciente"
+        <input [(ngModel)]="clientes.apellidos" type="text" name="apellido" class="form-control shadow p-3 inputPaciente"
           placeholder="Apellidos del cliente" required>
       </div>
       <div class="col">
         <h6 class="gray text-left">Email:</h6>
-          <input type="text" name="edad" class="form-control shadow p-3 inputPaciente" placeholder="@email.com"
+          <input [(ngModel)]="clientes.email" type="text" name="edad" class="form-control shadow p-3 inputPaciente" placeholder="@email.com"
             required>
       </div>
     </div>
     <div class="row">
+
       <div class="col">
         <h6 class="gray text-left">Dirección:</h6>
-        <input type="text" name="direccion" class="form-control shadow p-3 inputPaciente"
+        <input [(ngModel)]="clientes.direccion" type="text" name="direccion" class="form-control shadow p-3 inputPaciente"
           placeholder="Dirección del cliente" required>
       </div>
       <div class="col">
         <h6 class="gray text-left">Celular:</h6>
-        <input type="text" name="celular" class="form-control shadow p-3 inputPaciente"
+        <input [(ngModel)]="clientes.celular" type="text" name="celular" class="form-control shadow p-3 inputPaciente"
           placeholder="(+57) 310 000 0000" required>
       </div>
     </div>
+    <hr class="my-4">
+    <button type="submit" class="btn btn-success btn-lg" href="#" role="button">Guardar</button >
+    <button type="reset" class="btn btn-primary btn-lg" href="#" role="button" style="margin-left: 10px;">Limpiar</button>
   </form>
-  <hr class="my-4">
-  <a class="btn btn-success btn-lg" href="#" role="button">Guardar</a>
-  <a class="btn btn-primary btn-lg" href="#" role="button" style="margin-left: 10px;">Limpiar</a>
 </div>

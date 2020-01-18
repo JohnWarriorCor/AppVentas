@@ -11,6 +11,14 @@ import { APP_ROUTING } from './app.routes';
 import { FormularioclienteComponent } from './components/pages/cliente/formulariocliente.component';
 import { FormulariofacturaComponent } from './components/pages/factura/formulariofactura.component';
 import { FormularioarticuloComponent } from './components/pages/articulo/formularioarticulo.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Routes } from '@angular/router';
+import { KeysPipe } from './pipes/keys.pipe';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,11 +30,18 @@ import { FormularioarticuloComponent } from './components/pages/articulo/formula
     HeaderComponent,
     FormularioclienteComponent,
     FormulariofacturaComponent,
-    FormularioarticuloComponent
+    FormularioarticuloComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    NgbModule,
+    RouterModule,
+    FormsModule,
+    HttpModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,9 +9,9 @@ const routes: Routes = [
     { path: 'cliente', component: ClienteComponent },
     { path: 'articulo', component: ArticuloComponent },
     { path: 'factura', component: FacturaComponent },
-    { path: 'formcliente', component: FormularioclienteComponent },
-    { path: 'formarticulo', component: FormularioarticuloComponent },
-    { path: 'formfactura', component: FormulariofacturaComponent },
+    { path: 'formcliente/:id', component: FormularioclienteComponent },
+    { path: 'formarticulo/:id', component: FormularioarticuloComponent },
+    { path: 'formfactura/:id', component: FormulariofacturaComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'cliente' }
 ];
 
