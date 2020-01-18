@@ -24,13 +24,13 @@ export class ClienteComponent implements OnInit {
   }
   ngOnInit() {
   }
-  borrarInvocador( key$: string) {
+  borrarCliente( key$: string) {
     this._CLIENTESERVICES.borrarCliente(key$).subscribe( respuesta => {
       if ( respuesta ) {
         console.error(respuesta);
       } else {
         delete this.clientes[key$];
-        this.router.navigate(['/cliente']);
+        window.location.reload();
       }
     });
   }

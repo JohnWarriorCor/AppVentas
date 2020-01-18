@@ -1,35 +1,36 @@
 <div class="jumbotron">
   <h1 class="display-4">Artículos</h1>
-  <form novalidate class="text-center">
+  <form (ngSubmit)="guardar()" #forma="ngForm" novalidate class="text-center">
     <div class="row">
       <div class="col">
         <h6 class="text-left gray">Nombre:</h6>
-        <input type="text" name="nombre" autocomplete="off" class="form-control shadow p-3 inputPaciente" placeholder="Nombre artículo"
+        <input [(ngModel)]="articulos.nombre" type="text" name="nombre" autocomplete="off" class="form-control shadow p-3 inputPaciente" placeholder="Nombre artículo"
           required>
       </div>
       <div class="col">
         <h6 class="text-left gray">Nit:</h6>
-        <input type="text" name="numero" class="form-control shadow p-3 inputPaciente"
+        <input [(ngModel)]="articulos.nit" type="text" name="numero" class="form-control shadow p-3 inputPaciente"
           placeholder="000000" required>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <h6 class="gray text-left">Valor:</h6>
-        <input type="text" name="apellido" class="form-control shadow p-3 inputPaciente"
+        <input [(ngModel)]="articulos.valor" type="text" name="apellido" class="form-control shadow p-3 inputPaciente"
           placeholder="000000" required>
       </div>
       <div class="col">
       </div>
     </div>
     <div class="row">
+
       <div class="col">
         <h6 class="gray text-left">Caracteristicas:</h6>
-        <textarea name="observa" class="form-control shadow p-3 inputPaciente" placeholder="{{'1.-\n2.-\n3.-'}}" rows="3"></textarea>
+        <textarea [(ngModel)]="articulos.carac" name="observa" class="form-control shadow p-3 inputPaciente" placeholder="{{'1.-\n2.-\n3.-'}}" rows="3"></textarea>
       </div>
     </div>
+    <hr class="my-4">
+    <button type="submit" class="btn btn-success btn-lg" href="#" role="button">Guardar</button >
+    <button type="reset" class="btn btn-primary btn-lg" href="#" role="button" style="margin-left: 10px;">Limpiar</button>
   </form>
-  <hr class="my-4">
-  <a class="btn btn-success btn-lg" href="#" role="button">Guardar</a>
-  <a class="btn btn-primary btn-lg" href="#" role="button" style="margin-left: 10px;">Limpiar</a>
 </div>

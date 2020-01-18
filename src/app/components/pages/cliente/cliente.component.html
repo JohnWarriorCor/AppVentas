@@ -26,7 +26,7 @@
         <td class="tg-0pky align-middle text-center">
           <div class="row justify-content-center">
             <div class="col" style="margin: 0px; padding: 0px;">
-                <button class="btn btn-danger" (click)="borrarInvocador(cli)" style="width: 80%;margin: 1px;padding: 2px;"><span class="far fa-trash-alt"></span> Borrar</button>
+                <button class="btn btn-danger" (click)="borrarCliente(cli)" style="width: 80%;margin: 1px;padding: 2px;"><span class="far fa-trash-alt"></span> Borrar</button>
             </div>
             <div class="col" style="margin: 0px; padding: 0px;">
                 <button [routerLink]="['/formcliente', cli]" class="btn btn-primary" style="width: 80%;margin: 1px;padding: 2px;"><span class="fas fa-pencil-alt"></span> Editar</button>
@@ -37,5 +37,5 @@
     </tbody>
   </table>
   <hr class="my-4">
-  <a class="btn btn-primary btn-lg" role="button" [routerLink]="['/formcliente', 'nuevo']">Nuevo registro</a>
+  <a class="btn btn-primary btn-lg" role="button" [routerLink]="['/formcliente', 'nuevo']">Nuevo cliente</a>
 </div>

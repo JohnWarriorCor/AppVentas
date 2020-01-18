@@ -1,52 +1,76 @@
 <div class="jumbotron">
-  <h1 class="display-4">Factura</h1>
-  <form  novalidate class="text-center">
-    <div class="row">
-        <div class="col">
-            <h6 class="text-left gray">Nit:</h6>
-            <input  type="text" autocomplete="off" name="nombre" class="form-control shadow p-3 inputPaciente" placeholder="000000" required>
+    <h1 class="display-4">Factura</h1>
+    <form (ngSubmit)="guardar()" #forma="ngForm" novalidate class="text-center">
+        <div class="row">
+            <div class="col">
+                <h6 class="text-left gray">Nit:</h6>
+                <input [(ngModel)]="facturas.nit" type="text" autocomplete="off" name="nombre"
+                    class="form-control shadow p-3 inputPaciente" placeholder="000000" required>
+            </div>
+            <div class="col">
+                <h6 class="gray text-left">Fecha:</h6>
+                <input [(ngModel)]="facturas.fecha" type="date" name="ultvisita"
+                    class="form-control shadow p-3 inputPaciente" placeholder="Nombre del invocador" required>
+            </div>
         </div>
-        <div class="col">
-          <h6 class="gray text-left">Fecha:</h6>
-          <input  type="date" name="ultvisita" class="form-control shadow p-3 inputPaciente" placeholder="Nombre del invocador" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h6 class="gray text-left">Artículo:</h6>
-            <input  type="text" name="apellido" class="form-control shadow p-3 inputPaciente" placeholder="000000" required>
-        </div>
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <h6 class="gray text-left">Nombre:</h6>
-                    <input  type="text" name="edad" class="form-control shadow p-3 inputPaciente" placeholder="Nombre artículo" required>
-                </div>
-                <div class="col">
-                    <h6 class="gray text-left">Cantidad:</h6>
-                    <input type="text" name="altura" class="form-control shadow p-3 inputPaciente" placeholder="0" required>
+        <div class="row">
+            <div class="col">
+                <h6 class="gray text-left">Artículo:</h6>
+                <select [(ngModel)]="facturas.articulo" [ngModelOptions]="{standalone: true}"
+                    class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
+                    <option value="" disabled="disabled">Nit</option>
+                    <option *ngFor="let art of articulos | keys" [value]="articulos[art].nit">{{articulos[art].nit}}
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="gray text-left">Nombre:</h6>
+                        <select [(ngModel)]="facturas.nombreArt" [ngModelOptions]="{standalone: true}"
+                            class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
+                            <option value="" disabled="disabled">Artículo</option>
+                            <option *ngFor="let art of articulos | keys" [value]="articulos[art].nombre">
+                                {{articulos[art].nombre}}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <h6 class="gray text-left">Cantidad:</h6>
+                        <input [(ngModel)]="facturas.cantidad" (input)="precio()" type="text" name="altura"
+                            class="form-control shadow p-3 inputPaciente" placeholder="0" required>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
+        <div class="row">
+
+            <div class="col">
                 <h6 class="gray text-left">Apellido:</h6>
-                <input type="text" name="correo" class="form-control shadow p-3 inputPaciente" placeholder="Apellido cliente" required>
+                <select [(ngModel)]="facturas.apellidoCli" [ngModelOptions]="{standalone: true}"
+                    class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
+                    <option value="" disabled="disabled">Cliente</option>
+                    <option *ngFor="let cli of clientes | keys" [value]="clientes[cli].apellidos">{{clientes[cli].apellidos}}
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <h6 class="gray text-left">CC:</h6>
+                <select [(ngModel)]="facturas.idCli" [ngModelOptions]="{standalone: true}"
+                    class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
+                    <option value="" disabled="disabled">Cedula</option>
+                    <option *ngFor="let cli of clientes | keys" [value]="clientes[cli].cc">{{clientes[cli].cc}}
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <h6 class="gray text-left">Valor</h6>
+                <input [(ngModel)]="facturas.valor" type="text" name="correo"
+                    class="form-control shadow p-3 inputPaciente" placeholder="000000" required>
+            </div>
         </div>
-        <div class="col">
-          <h6 class="gray text-left">CC:</h6>
-          <input type="text" name="correo" class="form-control shadow p-3 inputPaciente" placeholder="000000" required>
-        </div>
-        <div class="col">
-            <h6 class="gray text-left">Valor</h6>
-            <select class="custom-select shadow inputPaciente" id="0" name="documento" >
-                <option selected>Desplegar</option>
-            </select>
-        </div>
-    </div>
-</form>
-  <hr class="my-4">
-  <a class="btn btn-success btn-lg" href="#" role="button">Guardar</a>
-  <a class="btn btn-primary btn-lg" href="#" role="button" style="margin-left: 10px;">Limpiar</a>
+        <hr class="my-4">
+        <button type="submit" class="btn btn-success btn-lg" href="#" role="button">Guardar</button>
+        <button type="reset" class="btn btn-primary btn-lg" href="#" role="button"
+            style="margin-left: 10px;">Limpiar</button>
+    </form>
 </div>

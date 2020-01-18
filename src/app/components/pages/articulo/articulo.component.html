@@ -1,36 +1,37 @@
 <div class="jumbotron">
   <h1 class="display-4">Artículos</h1>
+  <ngb-pagination class="d-flex justify-content-end" [collectionSize]="(((articulos | keys).length/10)*10)" [(page)]="page"></ngb-pagination>
   <table class="table table-striped table-dark">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Nit</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Caracteristicas</th>
+        <th scope="col">OPC</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let art of articulos | keys | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ; let i = index">
+        <th scope="row">{{ (i+1)+((page-1)*10)}}</th>
+        <td>{{ articulos[art].nit }}</td>
+        <td>{{ articulos[art].nombre }}</td>
+        <td>{{ articulos[art].valor }}</td>
+        <td>{{ articulos[art].carac }}</td>
+        <td class="tg-0pky align-middle text-center">
+          <div class="row justify-content-center">
+            <div class="col" style="margin: 0px; padding: 0px;">
+                <button class="btn btn-danger" (click)="borrarArticulo(art)" style="width: 80%;margin: 1px;padding: 2px;"><span class="far fa-trash-alt"></span> Borrar</button>
+            </div>
+            <div class="col" style="margin: 0px; padding: 0px;">
+                <button [routerLink]="['/formarticulo', art]" class="btn btn-primary" style="width: 80%;margin: 1px;padding: 2px;"><span class="fas fa-pencil-alt"></span> Editar</button>
+            </div>                  
+          </div>
+      </td>
       </tr>
     </tbody>
   </table>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  <a [routerLink]="['/formarticulo', 'nuevo']" class="btn btn-primary btn-lg" href="#" role="button">Nuevo articulo</a>
 </div>
