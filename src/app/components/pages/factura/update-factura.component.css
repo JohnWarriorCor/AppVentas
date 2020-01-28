@@ -1,0 +1,36 @@
+.fondoTitulo{
+    background-color: rgb(72, 153, 228);
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid;
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+}
+.inputPaciente{
+    border-radius: 50px;
+    width: 20%px;
+    margin-bottom: 15px
+}
+.gray{
+    color: #626567;
+}
+.tablaAdmin{
+    font-size: 13px;
+    color: #FFF;
+    background-color: #9bbb59;
+}
+input[type=date]::-webkit-outer-spin-button,
+
+input[type=date]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+input[type=date] {
+
+    -moz-appearance:textfield;
+
+}

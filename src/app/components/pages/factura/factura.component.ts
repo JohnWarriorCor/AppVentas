@@ -10,7 +10,7 @@ import { Router, ActivatedRoute} from '@angular/router';
 export class FacturaComponent implements OnInit {
 
   page = 0;
-  pageSize = 10;
+  pageSize = 1;
   facturas: any[] = [];
   loading = true;
   // tslint:disable-next-line:max-line-length

@@ -1,44 +1,73 @@
 <div class="jumbotron">
   <h1 class="display-4">Facturas</h1>
-  <ngb-pagination class="d-flex justify-content-end" [collectionSize]="(((facturas | keys).length/10)*10)" [(page)]="page"></ngb-pagination>
-  <table class="table table-striped table-dark">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nit</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Artículo</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">CC</th>
-        <th scope="col">Valor</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let fac of facturas | keys | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ; let i = index">
-        <th scope="row">{{ (i+1)+((page-1)*10)}}</th>
-        <td>{{ facturas[fac].nit }}</td>
-        <td>{{ facturas[fac].fecha }}</td>
-        <td>{{ facturas[fac].articulo }}</td>
-        <td>{{ facturas[fac].nombreArt }}</td>
-        <td>{{ facturas[fac].cantidad }}</td>
-        <td>{{ facturas[fac].apellidoCli }}</td>
-        <td>{{ facturas[fac].idCli }}</td>
-        <td>{{ facturas[fac].valor }}</td>
-        <td class="tg-0pky align-middle text-center">
-          <div class="row justify-content-center">
-            <div class="col" style="margin: 0px; padding: 0px;">
-                <button class="btn btn-danger" (click)="borrarFactura(fac)" style="width: 80%;margin: 1px;padding: 2px;"><span class="far fa-trash-alt"></span> Borrar</button>
+  <ngb-pagination class="d-flex justify-content-end" [collectionSize]="(((facturas | keys).length)*10)" [(page)]="page"></ngb-pagination>
+  <div class="card" *ngFor="let fac of facturas | keys | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ; let i = index">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <h3 class="card-title">Nit: {{ facturas[fac].nit }}</h3>
+        </div>
+        <div class="col">
+          <h3 class="card-title">Fecha: {{ facturas[fac].fecha }}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title">Apellido: {{ facturas[fac].apellidoCli }}</h5>
+        </div>
+        <div class="col">
+          <h5 class="card-title">Cédula: {{ facturas[fac].idCli | number }}</h5>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"></li>
+        <li class="list-group-item">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Artículo</th>
+                <th scope="col">Valor Unitario</th>
+                <th scope="col">Nit artículo</th>
+                <th scope="col">Cantidad</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{ facturas[fac].articulo }}</td>
+                <td>{{ facturas[fac].valorArt | currency }}</td>
+                <td>{{ facturas[fac].nombreArt }}</td>
+                <td>{{ facturas[fac].cantidad }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col">
+              <h1 class="card-title">Valor: {{ facturas[fac].valor | currency }}</h1>
             </div>
-            <div class="col" style="margin: 0px; padding: 0px;">
-                <button [routerLink]="['/formfactura', fac]" class="btn btn-primary" style="width: 80%;margin: 1px;padding: 2px;"><span class="fas fa-pencil-alt"></span> Editar</button>
-            </div>                  
+            <div class="col">
+              <img style="width: 500px;height: 50px;" src="../../../../assets/qr.jpg"  alt="...">
+            </div>
           </div>
-      </td>
-      </tr>
-    </tbody>
-  </table>
+        </li>
+        <li class="list-group-item text-center">
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-danger" (click)="borrarFactura(fac)" style="width: 80%;"><span class="far fa-trash-alt"></span> Borrar</button>
+            </div>
+            <div class="col">
+              <button [routerLink]="['/updateformfactura', fac]" class="btn btn-primary" style="width: 80%"><span class="fas fa-pencil-alt"></span> Editar</button>  
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
   <hr class="my-4">
   <a [routerLink]="['/formfactura', 'nuevo']" class="btn btn-primary btn-lg" href="#" role="button">Nueva factura</a>
 </div>

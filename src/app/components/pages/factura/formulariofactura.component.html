@@ -3,9 +3,9 @@
     <form (ngSubmit)="guardar()" #forma="ngForm" novalidate class="text-center">
         <div class="row">
             <div class="col">
-                <h6 class="text-left gray">Nit:</h6>
-                <input [(ngModel)]="facturas.nit" type="text" autocomplete="off" name="nombre"
-                    class="form-control shadow p-3 inputPaciente" placeholder="000000" required>
+                <h6 class="text-left gray">NIT-Factura:</h6>
+                <input [(ngModel)]="facturas.nit" type="text" autocomplete="off" placeholder="0000" name="nombre"
+                    class="form-control shadow p-3 inputPaciente" required>
             </div>
             <div class="col">
                 <h6 class="gray text-left">Fecha:</h6>
@@ -15,24 +15,32 @@
         </div>
         <div class="row">
             <div class="col">
-                <h6 class="gray text-left">Artículo:</h6>
-                <select [(ngModel)]="facturas.articulo" [ngModelOptions]="{standalone: true}"
-                    class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
-                    <option value="" disabled="disabled">Nit</option>
-                    <option *ngFor="let art of articulos | keys" [value]="articulos[art].nit">{{articulos[art].nit}}
-                    </option>
-                </select>
+                <div class="row">
+                    <div class="col">
+                        <h6 class="gray text-left">Artículo:</h6>
+                        <select [(ngModel)]="llaveArticulo"
+                            (click)="guardarKeyArticulo()" (change)="precio()" [ngModelOptions]="{standalone: true}"
+                            class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
+                            <option value="" disabled="disabled">Nombre</option>
+                            <option *ngFor="let art of articulos | keys" [value]="art">{{articulos[art].nombre}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <h6 class="gray text-left">Valor artículo:</h6>
+                        <input [(ngModel)]="facturas.valorArt" type="text" name="ultvisita"
+                            [value]="articulos[llaveArticulo].valorArt" class="form-control shadow p-3 inputPaciente"
+                            placeholder="$00000" required>
+                    </div>
+                </div>
             </div>
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <h6 class="gray text-left">Nombre:</h6>
-                        <select [(ngModel)]="facturas.nombreArt" [ngModelOptions]="{standalone: true}"
-                            class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
-                            <option value="" disabled="disabled">Artículo</option>
-                            <option *ngFor="let art of articulos | keys" [value]="articulos[art].nombre">
-                                {{articulos[art].nombre}}</option>
-                        </select>
+                        <h6 class="gray text-left">NIT-Articulo:</h6>
+                        <input type="text" name="ultvisita"
+                            [value]="articulos[llaveArticulo].nit" class="form-control shadow p-3 inputPaciente"
+                            placeholder="Nit" required>
                     </div>
                     <div class="col">
                         <h6 class="gray text-left">Cantidad:</h6>
@@ -46,26 +54,25 @@
 
             <div class="col">
                 <h6 class="gray text-left">Apellido:</h6>
-                <select [(ngModel)]="facturas.apellidoCli" [ngModelOptions]="{standalone: true}"
-                    class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
+                <select [(ngModel)]="llaveCliente" (click)="guardarKeyCliente()"
+                    [ngModelOptions]="{standalone: true}" class="form-control inputPaciente shadow"
+                    id="exampleFormControlSelect1">
                     <option value="" disabled="disabled">Cliente</option>
-                    <option *ngFor="let cli of clientes | keys" [value]="clientes[cli].apellidos">{{clientes[cli].apellidos}}
+                    <option *ngFor="let cli of clientes | keys" [value]="cli">
+                        {{clientes[cli].apellidos}}
                     </option>
                 </select>
             </div>
             <div class="col">
                 <h6 class="gray text-left">CC:</h6>
-                <select [(ngModel)]="facturas.idCli" [ngModelOptions]="{standalone: true}"
-                    class="form-control inputPaciente shadow" id="exampleFormControlSelect1">
-                    <option value="" disabled="disabled">Cedula</option>
-                    <option *ngFor="let cli of clientes | keys" [value]="clientes[cli].cc">{{clientes[cli].cc}}
-                    </option>
-                </select>
+                <input type="text" name="ultvisita" [value]="clientes[llaveCliente].cc"
+                    class="form-control shadow p-3 inputPaciente" placeholder="Cedula" required>
             </div>
             <div class="col">
                 <h6 class="gray text-left">Valor</h6>
                 <input [(ngModel)]="facturas.valor" type="text" name="correo"
-                    class="form-control shadow p-3 inputPaciente" placeholder="000000" required>
+                    [value]="(articulos[llaveArticulo].valor)*cantidad" class="form-control shadow p-3 inputPaciente"
+                    placeholder="000000" required>
             </div>
         </div>
         <hr class="my-4">

@@ -19,6 +19,7 @@ import { Routes } from '@angular/router';
 import { KeysPipe } from './pipes/keys.pipe';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { UpdateFacturaComponent } from './components/pages/factura/update-factura.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RouterModule } from '@angular/router';
     FormularioclienteComponent,
     FormulariofacturaComponent,
     FormularioarticuloComponent,
-    KeysPipe
+    KeysPipe,
+    UpdateFacturaComponent
   ],
   imports: [
     BrowserModule,

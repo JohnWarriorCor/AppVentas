@@ -17,7 +17,7 @@
         <th scope="row">{{ (i+1)+((page-1)*10)}}</th>
         <td>{{ articulos[art].nit }}</td>
         <td>{{ articulos[art].nombre }}</td>
-        <td>{{ articulos[art].valor }}</td>
+        <td>{{ articulos[art].valor | currency }}</td>
         <td>{{ articulos[art].carac }}</td>
         <td class="tg-0pky align-middle text-center">
           <div class="row justify-content-center">

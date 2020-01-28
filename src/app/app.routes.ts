@@ -5,6 +5,7 @@ import { FacturaComponent } from './components/pages/factura/factura.component';
 import { FormularioarticuloComponent } from './components/pages/articulo/formularioarticulo.component';
 import { FormularioclienteComponent } from './components/pages/cliente/formulariocliente.component';
 import { FormulariofacturaComponent } from './components/pages/factura/formulariofactura.component';
+import { UpdateFacturaComponent } from './components/pages/factura/update-factura.component';
 const routes: Routes = [
     { path: 'cliente', component: ClienteComponent },
     { path: 'articulo', component: ArticuloComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'formcliente/:id', component: FormularioclienteComponent },
     { path: 'formarticulo/:id', component: FormularioarticuloComponent },
     { path: 'formfactura/:id', component: FormulariofacturaComponent },
+    { path: 'updateformfactura/:id', component: UpdateFacturaComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'cliente' }
 ];
 

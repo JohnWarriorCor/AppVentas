@@ -17,7 +17,7 @@
     <tbody>
       <tr *ngFor="let cli of clientes | keys | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ; let i = index">
         <th scope="row">{{ (i+1)+((page-1)*10)}}</th>
-        <td>{{ clientes[cli].cc }}</td>
+        <td>{{ clientes[cli].cc | number }}</td>
         <td>{{ clientes[cli].nombre }}</td>
         <td>{{ clientes[cli].apellidos }}</td>
         <td>{{ clientes[cli].email }}</td>

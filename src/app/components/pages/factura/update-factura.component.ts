@@ -11,12 +11,13 @@ import { Articulo } from '../../../interfaces/articulo';
 import { isInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
-  selector: 'app-formulariofactura',
-  templateUrl: './formulariofactura.component.html',
-  styleUrls: ['./formulariofactura.component.css'],
+  selector: 'app-update-factura',
+  templateUrl: './update-factura.component.html',
+  styleUrls: ['./update-factura.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class FormulariofacturaComponent implements OnInit {
+export class UpdateFacturaComponent implements OnInit {
+
   costo: any;
   cantidad: any;
   val: any;
@@ -74,38 +75,17 @@ export class FormulariofacturaComponent implements OnInit {
       }
     });
     this._CLIENTESERVICES.getClientes().subscribe( data => {
-      this.clientes = data;
-      this.obj1 = JSON.stringify(this.clientes);
-      // console.log(this.obj);
-      // console.log(typeof this.obj);
-      this.myObject1 = JSON.parse(this.obj1);
-      return this.myObject1;
+      setTimeout(() => {
+        this.clientes = data;
+      }, 0);
     });
     this._ARTICULOSERVICES.getArticulos().subscribe( data => {
-      this.articulos = data;
-      this.obj = JSON.stringify(this.articulos);
-      // console.log(this.obj);
-      // console.log(typeof this.obj);
-      this.myObject = JSON.parse(this.obj);
-      return this.myObject;
-      // tslint:disable-next-line:no-string-literal
-      // console.log(this.myObject[this.llave]['nombre']);
+      setTimeout(() => {
+        this.articulos = data;
+      }, 0);
     });
   }
-  guardarKeyArticulo() {
-    this.llaveArticulo = this.llaveArticulo;
-    console.log(this.llaveArticulo);
-    this.facturas.articulo = this.myObject[this.llaveArticulo].nombre;
-    this.facturas.nombreArt = this.myObject[this.llaveArticulo].nit;
-    return this.llaveArticulo;
-  }
-  guardarKeyCliente() {
-    this.llaveCliente = this.llaveCliente;
-    console.log(this.llaveCliente);
-    this.facturas.apellidoCli = this.myObject1[this.llaveCliente].apellidos;
-    this.facturas.idCli = this.myObject1[this.llaveCliente].cc;
-    return this.llaveCliente;
-  }
+
   ngOnInit() {
   }
   guardar() {
@@ -124,13 +104,10 @@ export class FormulariofacturaComponent implements OnInit {
   precio() {
     this.cantidad = +this.facturas.cantidad;
     // this.val = +this.articulos.valor;
-    this.costo = +this.myObject[this.llaveArticulo].valor;
-    this.facturas.valorArt = this.costo;
-    this.costo = this.cantidad * this.costo;
+    this.costo = this.cantidad * 1000;
     this.facturas.valor = this.costo;
     console.log(this.facturas.valor);
-    console.log(this.facturas.valor);
-    return this.facturas.valor;
+    return ('' + this.facturas.valor);
   }
   cargarArticulo() {
     console.log('Paso ', this.articulos[0].nombre);

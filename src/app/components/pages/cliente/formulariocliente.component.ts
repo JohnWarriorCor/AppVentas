@@ -37,6 +37,7 @@ export class FormularioclienteComponent implements OnInit {
     this.activatedRoute.params.subscribe( parametros => {
       console.log(this.jstoday);
       this.id = parametros.id;
+      console.log(this.id);
       if ( this.id !== 'nuevo' ) {
         this._CLIENTESERVICES.getCliente( this.id ).subscribe(clientes => this.clientes = clientes);
       }
