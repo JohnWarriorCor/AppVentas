@@ -8,7 +8,6 @@ import { Router, ActivatedRoute} from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class FacturaComponent implements OnInit {
-
   page = 0;
   pageSize = 1;
   facturas: any[] = [];

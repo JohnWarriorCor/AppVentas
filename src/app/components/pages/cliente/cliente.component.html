@@ -1,5 +1,5 @@
-<div class="jumbotron">
-  <h1 class="display-4">Clientes</h1>
+<div class="jumbotron" style="background-color: white;padding: 10px;">
+  <h1>Clientes</h1>
   <ngb-pagination class="d-flex justify-content-end" [collectionSize]="(((clientes | keys).length/10)*10)" [(page)]="page"></ngb-pagination>
   <table style="text-align: center;" class="table table-striped table-dark">
     <thead>
@@ -8,9 +8,9 @@
         <th scope="col">CC</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
-        <th scope="col">Celular</th>
-        <th scope="col">Dirección</th>
         <th scope="col">Email</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Celular</th>
         <th scope="col">OPC</th>
       </tr>
     </thead>

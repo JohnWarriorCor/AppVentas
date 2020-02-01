@@ -1,5 +1,8 @@
-<app-header></app-header>
-<div class="container main-container" style="margin-top: 50px;">
-  <router-outlet></router-outlet>
+<div id="wrapper">
+  <app-header class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+  </app-header>
+  <div class="d-flex flex-column container main-container" style="margin-top: 50px;">
+    <router-outlet id="content"></router-outlet>
+  </div>
 </div>
 <app-footer></app-footer>

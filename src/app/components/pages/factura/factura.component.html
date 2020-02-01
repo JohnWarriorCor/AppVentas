@@ -1,17 +1,23 @@
-<div class="jumbotron">
-  <h1 class="display-4">Facturas</h1>
-  <ngb-pagination class="d-flex justify-content-end" [collectionSize]="(((facturas | keys).length)*10)" [(page)]="page"></ngb-pagination>
-  <div class="card" *ngFor="let fac of facturas | keys | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ; let i = index">
+<div class="jumbotron" style="background-color: white;padding: 10px;margin-top: 10px;">
+  <div class="row">
+    <div class="col">
+      <h1>Facturas</h1>
+    </div>
+    <div class="col">
+      <ngb-pagination class="d-flex justify-content-end" [collectionSize]="(((facturas | keys).length)*10)"
+        [(page)]="page"></ngb-pagination>
+    </div>
+  </div>
+  <div class="card"
+    *ngFor="let fac of facturas | keys | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ; let i = index">
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <h3 class="card-title">Nit: {{ facturas[fac].nit }}</h3>
+          <h5 class="card-title">Nit: {{ facturas[fac].nit }}</h5>
         </div>
         <div class="col">
-          <h3 class="card-title">Fecha: {{ facturas[fac].fecha }}</h3>
+          <h5 class="card-title">Fecha: {{ facturas[fac].fecha }}</h5>
         </div>
-      </div>
-      <div class="row">
         <div class="col">
           <h5 class="card-title">Apellido: {{ facturas[fac].apellidoCli }}</h5>
         </div>
@@ -22,7 +28,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"></li>
         <li class="list-group-item">
-          <table class="table">
+          <table class="table" style="text-align: center;">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
@@ -47,27 +53,36 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col">
-              <h1 class="card-title">Valor: {{ facturas[fac].valor | currency }}</h1>
+              <h4 class="card-title">Valor: {{ facturas[fac].valor | currency }}</h4>
             </div>
             <div class="col">
-              <img style="width: 500px;height: 50px;" src="../../../../assets/qr.jpg"  alt="...">
+              <img style="width: 500px;height: 40px;" src="../../../../assets/qr.jpg" alt="...">
             </div>
           </div>
         </li>
         <li class="list-group-item text-center">
           <div class="row">
             <div class="col">
-              <button class="btn btn-danger" (click)="borrarFactura(fac)" style="width: 80%;"><span class="far fa-trash-alt"></span> Borrar</button>
+              <button class="btn btn-danger" (click)="borrarFactura(fac)" style="width: 80%;"><span
+                  class="far fa-trash-alt"></span> Borrar</button>
             </div>
             <div class="col">
-              <button [routerLink]="['/updateformfactura', fac]" class="btn btn-primary" style="width: 80%"><span class="fas fa-pencil-alt"></span> Editar</button>  
+              <button [routerLink]="['/updateformfactura', fac]" class="btn btn-primary" style="width: 80%"><span
+                  class="fas fa-pencil-alt"></span> Editar</button>
             </div>
           </div>
         </li>
       </ul>
     </div>
-
   </div>
-  <hr class="my-4">
-  <a [routerLink]="['/formfactura', 'nuevo']" class="btn btn-primary btn-lg" href="#" role="button">Nueva factura</a>
+  <div *ngIf="(facturas | keys).length === 0 && !loading" class="alert alert-warning text-center" role="alert">
+    <strong>
+      <h4 class="alert-warning">No hay regsitros que mostrar</h4>
+    </strong>
+  </div>
+  <div *ngIf="loading" class="alert alert-warning text-center" role="alert">
+    <strong>
+      <h4 class="alert-heading">Cargando...</h4>
+    </strong>
+  </div>
 </div>

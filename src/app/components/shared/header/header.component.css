@@ -1,4 +1,12 @@
+.estilo1{
+    background-color: #4e73df;
+    color: white;
+}
+.estilo{
+    background-color: #4e73df;
+    color: white;
+}
 .estilo:hover{
-    background-color: darkslategray;
+    background-color: rgb(42, 16, 189);
     color: white;
 }

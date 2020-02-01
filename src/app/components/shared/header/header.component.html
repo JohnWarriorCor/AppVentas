@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" [routerLink]="['/cliente']" routerLinkActive="router-link-active">
     AppVentas
   </a>
@@ -35,18 +35,44 @@
           <a class="dropdown-item estilo" [routerLink]="['/factura']" routerLinkActive="router-link-active">Listar factura</a>
         </div>
       </li>
-      <!--
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>-->
     </ul>
+  </div>
+</nav>-->
+<nav style="padding: 20px;width: 300px;">
+  <div class="container-fluid d-flex flex-column p-0 text-center">
+    <a class="navbar-brand" [routerLink]="['/cliente']" routerLinkActive="router-link-active">
+      AppVentas
+    </a>  
+    <div class="navbar-collapse">
+      <ul class="navbar-nav mr-auto text-uppercase">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            cliente
+          </a>
+          <div class="dropdown-menu estilo1" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item estilo" [routerLink]="['/formcliente', 'nuevo']" routerLinkActive="router-link-active">Nuevo cliente</a>
+            <a class="dropdown-item estilo" [routerLink]="['/cliente']" routerLinkActive="router-link-active">Listar cliente</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            artículo
+          </a>
+          <div class="dropdown-menu estilo1" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item estilo" [routerLink]="['/formarticulo', 'nuevo']" routerLinkActive="router-link-active">Nuevo artículo</a>
+            <a class="dropdown-item estilo" [routerLink]="['/articulo']" routerLinkActive="router-link-active">Listar artículo</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            factura
+          </a>
+          <div class="dropdown-menu estilo1" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item estilo" [routerLink]="['/formfactura', 'nuevo']" routerLinkActive="router-link-active">Nuevo factura</a>
+            <a class="dropdown-item estilo" [routerLink]="['/factura']" routerLinkActive="router-link-active">Listar factura</a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
